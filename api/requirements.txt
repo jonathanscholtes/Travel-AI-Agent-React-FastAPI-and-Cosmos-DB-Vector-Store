@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+weaviate-client==3.24.1
+python-dotenv==1.0.0
+pymongo
+tiktoken
+langchain-openai
+langchain
+langchain-community
+openai
+azure-storage-blob

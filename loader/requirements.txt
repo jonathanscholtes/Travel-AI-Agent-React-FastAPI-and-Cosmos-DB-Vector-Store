@@ -1,0 +1,10 @@
+pymongo 
+openai 
+python-dotenv
+tiktoken
+langchain-openai
+azure-storage-blob
+azure-identity
+langchain==0.1.13
+langchain-community==0.0.29
+langchain-core==0.1.33

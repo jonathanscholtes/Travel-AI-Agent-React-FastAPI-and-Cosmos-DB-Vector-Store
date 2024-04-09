@@ -1,0 +1,51 @@
+{
+  "ships": [
+    {
+      "name": "Fantasy Seas Adventure",
+      "description": "'Fantasy Seas Adventure' aims to create unforgettable memories for families, blending excitement, relaxation, and entertainment tailored to every member of the family",
+      "amenities": [
+        "Fantasy Cove Kids Club: A dedicated area for children filled with interactive games, arts and crafts, and supervised activities. Trained staff members ensure kids have a blast while parents enjoy some leisure time. Splash Zone Water Park: A vibrant water park featuring thrilling slides, splash pads, and water cannons, providing endless fun for kids of all ages.",
+        "Family-Friendly Entertainment: From Broadway-style shows to comedy nights, there's entertainment for the whole family to enjoy together.",
+        "Adventure Arcade: An arcade packed with the latest video games and classic favorites, offering hours of entertainment for kids and teens.",
+        "Teen Hangout Lounge: A cool and trendy hangout spot exclusively for teens, complete with gaming consoles, movie screenings, and social activities.",
+        "Family Dining Options: Multiple dining venues offering a variety of cuisines to suit every palate, including kid-friendly menus and options for dietary restrictions.",
+        "Outdoor Sports Court: A multi-purpose sports court for families to engage in friendly games of basketball, volleyball, or soccer while enjoying the ocean breeze.",
+        "Family Movie Nights: Regular outdoor movie screenings under the stars, featuring family-friendly films and popcorn for everyone to enjoy.",
+        "Educational Programs: Enriching activities such as science experiments, storytelling sessions, and treasure hunts designed to entertain and educate young cruisers.",
+        "Family Suites and Connecting Rooms: Spacious accommodations designed to accommodate families comfortably, with options for connecting rooms and suites equipped with amenities catering to families' needs"
+      ]
+    },
+    {
+      "name": "Adventures of the Ocean",
+      "description": "'Adventures of the Ocean' promises an unforgettable voyage filled with thrilling experiences and opportunities for exploration at every turn",
+      "amenities": [
+        "Explorer's Lounge: A cozy lounge area designed to inspire adventure with nautical decor, featuring maps of exotic destinations and comfortable seating for planning exciting excursions.",
+        "Thrill Seeker's Water Park: An adrenaline-pumping water park onboard featuring exhilarating slides, a wave pool, and a lazy river, offering endless fun for guests seeking adventure.",
+        "Rock Climbing Wall: A challenging rock climbing wall with varying degrees of difficulty, providing an adventurous activity for guests of all ages.",
+        "Zip Line Adventure: Experience the thrill of soaring above the ocean with an onboard zip line, offering panoramic views of the sea and surrounding landscapes.",
+        "Outdoor Adventure Sports Court: A multi-purpose sports court for guests to engage in exciting activities such as basketball, volleyball, and mini-golf while enjoying the fresh sea breeze.",
+        "Dive-In Movies: Enjoy outdoor movie nights under the stars with a selection of adventure-themed films, providing entertainment for guests of all ages.",
+        "Adventure Excursions: Curated shore excursions to breathtaking destinations, including snorkeling in vibrant coral reefs, hiking through lush rainforests, and zip-lining over scenic valleys.",
+        "Adventure Dining Experiences: Specialty restaurants offering cuisine inspired by global adventures, with dishes highlighting flavors from exotic destinations around the world.",
+        "Onboard Expedition Talks: Enriching lectures and workshops led by experienced adventurers, providing guests with insights into wildlife, culture, and history of the destinations visited.",
+        "Explorer's Club for Kids: A supervised program offering adventurous activities and educational experiences for young cruisers, including treasure hunts, nature walks, and storytelling sessions."
+      ]
+    },
+    {
+      "name": "Tranquil Breeze",
+      "description": "'Tranquil Breeze' invites guests to unwind, rejuvenate, and find inner peace as they sail through tranquil waters and breathtaking landscapes, providing the ultimate relaxation experience at sea.",
+      "amenities": [
+        "Serene Spa Retreat: Indulge in ultimate relaxation at the onboard spa, offering a range of rejuvenating treatments including massages, facials, and aromatherapy sessions.",
+        "Infinity Pool Oasis: Lounge by the tranquil infinity pool overlooking the vast expanse of the ocean, providing a peaceful escape for guests to unwind and soak up the sun.",
+        "Zen Garden Lounge: A secluded outdoor oasis featuring lush greenery, tranquil water features, and comfortable seating areas for guests to relax and meditate in serenity.",
+        "Hammock Haven: A dedicated area with hammocks suspended over the ocean, allowing guests to sway gently with the sea breeze while enjoying the soothing sounds of the waves.",
+        "Quiet Reading Nook: A cozy corner filled with books, magazines, and comfortable seating, providing guests with a peaceful space to escape into a good book or enjoy some quiet time.",
+        "Gourmet Dining Experiences: Indulge in exquisite cuisine crafted by world-class chefs, with a focus on fresh, locally sourced ingredients and fine dining experiences in elegant settings.",
+        "Sunset Lounge: An elegant lounge area offering panoramic views of the ocean and breathtaking sunsets, providing the perfect backdrop for evening cocktails and live music performances.",
+        "Yoga and Meditation Classes: Daily yoga and meditation classes led by experienced instructors, allowing guests to reconnect with their inner selves and find inner peace amidst the tranquil surroundings.",
+        "Stargazing Deck: A designated stargazing deck equipped with telescopes and knowledgeable guides, offering guests the opportunity to marvel at the wonders of the night sky in complete relaxation.",
+        "Silent Disco Nights: Dance the night away under the stars with silent disco nights, where guests can groove to their favorite tunes using wireless headphones, creating a serene and intimate atmosphere."
+      ]
+    }
+  ]
+}

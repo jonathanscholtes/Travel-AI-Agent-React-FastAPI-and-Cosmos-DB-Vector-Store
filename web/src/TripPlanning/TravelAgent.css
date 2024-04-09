@@ -1,0 +1,11 @@
+.AgentArea {
+  width: 100%;
+  height: 300px;
+  border: 1;
+  border-style: solid;
+  border-color: gainsboro;
+  border-width: 1px;
+  border-radius: 5px;
+  overflow-y: scroll;
+
+}

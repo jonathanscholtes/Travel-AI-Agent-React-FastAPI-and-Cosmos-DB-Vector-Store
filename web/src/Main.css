@@ -1,0 +1,60 @@
+.Main {
+  min-height: 100vh;
+  font-size: calc(4px + 2vmin);
+  background-color: white;
+  display: grid;
+  grid-template-rows: 65% auto 2%;
+  grid-template-columns: auto;
+}
+
+.Main-Header {
+  grid-row: 1;
+  grid-column: 1;
+  padding-top: 20px;
+  text-align: left;
+  padding-left: 2%;
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+}
+
+
+
+.Main-Body {
+  grid-row: 2;
+  grid-column: 1;
+  width: 98%;
+  padding-top: 5px;
+  
+}
+
+.Main-Content {
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.Main-Agent-Div {
+  width: 95%;
+  height: 50px;
+  text-align: center;
+  background-size: 100%;
+  background-image: url('images/cruise_agent_background.jpg');
+  border-color: dimgray;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  
+}
+
+.Main-Footer {
+  grid-row: 3;
+  grid-column: 1;
+  padding: 10px;
+  font-style: italic;
+  font-size: 9pt;
+  text-align: left;
+  vertical-align: bottom;
+}
