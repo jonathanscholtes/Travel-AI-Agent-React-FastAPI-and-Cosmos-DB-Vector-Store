@@ -10,7 +10,8 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 import json
 
 from service import TravelAgentTools as agent_tools
-
+from model.promptresponse import PromptResponse
+import time
 
 
 
@@ -19,12 +20,12 @@ from service import TravelAgentTools as agent_tools
 
 def agent_chat(input:str)->str:
 
-    tools = [agent_tools.travel_search ]
+    tools = [agent_tools.travel_agent ]
     prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a helpful travel assistant for a cruise company. Answer all questions to the best of your ability.",
+            "You are a helpful travel assistant for a cruise company. Answer all questions to the best of your ability. ",
         ),
         MessagesPlaceholder(variable_name="chat_history"),
         ("user", "{input}"),
@@ -32,6 +33,7 @@ def agent_chat(input:str)->str:
     ]
     )
 
+    #Answer should be embedded in html tags. 
 
     llm_with_tools = chat.bind_tools(tools)
 
@@ -50,6 +52,8 @@ def agent_chat(input:str)->str:
 
 
     agent_executor  = AgentExecutor(agent=agent, tools=tools, verbose=True)
+
+    start_time = time.time()
     results = agent_executor.invoke({"input": input,"chat_history": chat_history})
 
     chat_history.extend(
@@ -58,4 +62,4 @@ def agent_chat(input:str)->str:
         AIMessage(content=results["output"])
     ]
     )
-    return results["output"]
+    return  PromptResponse(text=results["output"],ResponseSeconds=(time.time() - start_time))

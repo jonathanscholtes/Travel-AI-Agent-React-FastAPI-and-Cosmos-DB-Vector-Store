@@ -9,12 +9,27 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material'
+import parse from 'html-react-parser';
 
 export default function TravelAgent() {
   const [open, setOpen] = React.useState(false)
   const [chatPrompt, setChatPrompt] = useState(
-    'I want to take a vacation with the family',
+    'I want to take a relaxing vacation.',
   )
+  const [results, setResults] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handlePrompt = () => {
+    setIsLoading(true)
+    setResults(null)
+    fetch(process.env.REACT_APP_API_HOST + '/agent/' + chatPrompt)
+      .then((response) => response.json())
+      .then((res) => {
+        setResults(res)
+        setIsLoading(false)
+      })
+  }
+
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -31,7 +46,9 @@ export default function TravelAgent() {
           <Stack>
             <Box sx={{ height: '350px' }}>
               <div className="AgentArea">
-                <Stack sx={{ p: 2 }}>fsdfd</Stack>
+                <Stack sx={{ p: 2 }}>{
+                  results !== null &&
+                  results.text}</Stack>
               </div>
             </Box>
             <Stack direction="row" spacing={0}>
@@ -40,7 +57,7 @@ export default function TravelAgent() {
                 variant="outlined"
                 label="Message"
                 helperText="Chat with AI Travel Agent"
-                defaultValue="I want to take a vacation with the family"
+                defaultValue="I want to take a relaxing vacation."
                 value={chatPrompt}
                 onChange={(event) => setChatPrompt(event.target.value)}
               ></TextField>
@@ -48,6 +65,7 @@ export default function TravelAgent() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 sx={{ mb: 3, ml: 3, mt: 1 }}
+                onClick={handlePrompt}
               >
                 Submit
               </Button>
