@@ -1,4 +1,5 @@
 from cosmosdbloader import CosmosDBLoader
+from itinerarybuilder import ItineraryBuilder
 from blobloader import BlobLoader
 import json
 import base64
@@ -14,18 +15,12 @@ with open('documents/ships.json') as file:
 with open('documents/destinations.json') as file:
         destinations_json = json.load(file)
 
+builder = ItineraryBuilder(ship_json['ships'],destinations_json['destinations'])
+itinerary = builder.build(5)
 
-#cosmosdb_loader.load_data(ship_json['ships'],'ships')
-#cosmosdb_loader.load_data(destinations_json['destinations'],'destinations')
+cosmosdb_loader.load_data(itinerary,'itinerary')
 
 cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
 cosmosdb_loader.load_vectors(destinations_json['destinations'],'destinations')
 
-#data ={'data':[]}
-#for ship in ship_json['ships']:
-#        data['data'].append({'name':ship['name'],'type':'ship','text':(ship['description'] + ' '.join(ship['amenities']))})
 
-#for dest in destinations_json['destinations']:
-#        data['data'].append({'name':dest['name'],'type':'destination','text':(dest['description'] + ' '.join(dest['activities']))})
-
-#cosmosdb_loader.load_vectors(data['data'],'resources')

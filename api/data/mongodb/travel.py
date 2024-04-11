@@ -1,11 +1,29 @@
 
-from .init import collection, vector_store
+from .init import client, vector_store
 from langchain.docstore.document import Document
 from typing import List, Optional, Union
+from model.itinerary import Itinerary
 
+def get_ship_by_name(name:str)->str:
+    db = client["travel"]
+    collection_name = db["ships"]
+    print(f"-{name}-")
+    ship = collection_name.find_one({'name': name.strip()})
+    return ship['shipid']
 
-
-
+def itnerary_search(name:str) -> list[Itinerary]:
+    data = []
+    db = client["travel"]
+    collection_name = db["itinerary"]
+    id = get_ship_by_name(name)
+    print(id)
+    cursor  = collection_name.find({'ship.shipid':id})
+    for item in cursor:
+        data.append(Itinerary(ShipID=item['ship']['shipid'],
+                              Name=item['name']
+                    ))
+    print(data)
+    return data
 
 
 

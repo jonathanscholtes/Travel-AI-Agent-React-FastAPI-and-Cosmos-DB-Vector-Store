@@ -14,7 +14,7 @@ from langchain_community.vectorstores.azure_cosmos_db import (
 load_dotenv(override=True)
 
 
-collection: Collection | None = None
+client: MongoClient | None = None
 vector_store: AzureCosmosDBVectorSearch | None=None
 semantic_cache : AzureCosmosDBSemanticCache | None=None
 
@@ -24,7 +24,7 @@ def mongodb_init():
     COLLECTION_NAME = "ships"
     INDEX_NAME = "vectorSearchIndex"
 
-    global collection, vector_store, semantic_cache
+    global client, vector_store, semantic_cache
     client = MongoClient(MONGO_CONNECTION_STRING)
     db = client[DB_NAME]
     collection = db[COLLECTION_NAME]

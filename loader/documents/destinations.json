@@ -1,6 +1,7 @@
 {
   "destinations": [
     {
+      "destinationid": "3a629a06-6a6e-4db8-9149-6dde81f10246",
       "name": "Barbados",
       "location": "Southeastern Caribbean Sea",
       "description": "Barbados, with its captivating blend of natural beauty and vibrant culture, offers an array of thrilling adventure activities for travelers seeking excitement and exploration. Whether you're seeking adrenaline-pumping activities or serene nature experiences, Barbados offers an abundance of adventure opportunities for every type of traveler to enjoy.",
@@ -14,6 +15,7 @@
       ]
     },
     {
+      "destinationid": "b8ec5116-9986-4e91-8000-6cc79cece07f",
       "name": "Aruba",
       "location": "Southern Caribbean Sea",
       "description": "Aruba, known as 'One Happy Island,' is a perfect destination for families seeking sunshine, adventure, and relaxation. With its pristine beaches, crystal-clear waters, and diverse array of family-friendly attractions, Aruba offers something for everyone to enjoy. Aruba's diverse range of family-friendly activities ensures that visitors of all ages can enjoy an unforgettable vacation in this tropical paradise. With its warm hospitality and endless opportunities for adventure, Aruba is the perfect destination for your next family getaway.",
@@ -28,6 +30,7 @@
       ]
     },
     {
+      "destinationid": "e3829031-24ba-44ec-bf68-fec3f3d82c81",
       "name": "Turks and Caicos",
       "location": "Caribbean Sea",
       "description": "Turks and Caicos offers a myriad of relaxation activities, allowing visitors to unwind, recharge, and reconnect with themselves amidst the beauty of the Caribbean. Whether you're seeking solitude on a secluded beach or indulging in luxury spa treatments, Turks and Caicos provides the perfect backdrop for a serene and rejuvenating escape.",

@@ -20,15 +20,15 @@ import time
 
 def agent_chat(input:str)->str:
 
-    tools = [agent_tools.travel_agent ]
+    tools = [agent_tools.travel_agent, agent_tools.itinerary_lookup ]
     prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a helpful travel assistant for a cruise company. Answer all questions to the best of your ability. ",
+            "You are a helpful and friendly travel assistant for a cruise company. Answer all questions to the best of your ability. ",
         ),
         MessagesPlaceholder(variable_name="chat_history"),
-        ("user", "{input}"),
+        ("user", "Answer should be embedded in html tags. {input}"),
          MessagesPlaceholder(variable_name="agent_scratchpad"),
     ]
     )

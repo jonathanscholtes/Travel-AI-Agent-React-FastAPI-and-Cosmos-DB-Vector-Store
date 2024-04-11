@@ -1,6 +1,7 @@
 {
   "ships": [
     {
+      "shipid": "52136687-40dd-4d7c-9ad0-3a225f61b294",
       "name": "Fantasy Seas Adventure",
       "description": "'Fantasy Seas Adventure' aims to create unforgettable memories for families, blending excitement, relaxation, and entertainment tailored to every member of the family",
       "amenities": [
@@ -16,6 +17,7 @@
       ]
     },
     {
+      "shipid": "9084d22d-07af-4945-9826-dad4159fdf65",
       "name": "Adventures of the Ocean",
       "description": "'Adventures of the Ocean' promises an unforgettable voyage filled with thrilling experiences and opportunities for exploration at every turn",
       "amenities": [
@@ -32,6 +34,7 @@
       ]
     },
     {
+      "shipid": "b683b9a7-d8d1-4a42-92b0-e80ddd6fbccd",
       "name": "Tranquil Breeze",
       "description": "'Tranquil Breeze' invites guests to unwind, rejuvenate, and find inner peace as they sail through tranquil waters and breathtaking landscapes, providing the ultimate relaxation experience at sea.",
       "amenities": [

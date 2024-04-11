@@ -27,6 +27,7 @@ class JSONDataLoader(BaseLoader):
             amenities = element['amenities']
 
             metadata = dict(
+                shipid = element['shipid'],
                 name = name,
                 description = description,
                 amenities = amenities
@@ -43,6 +44,7 @@ class JSONDataLoader(BaseLoader):
    
         #iterate through resource pages and create a Document for each page
         for element in data:
+            destinationid = element['destinationid']
             name = element['name']
             text = element['description'] + ' '.join(element['activities'])
             location = element['location']
