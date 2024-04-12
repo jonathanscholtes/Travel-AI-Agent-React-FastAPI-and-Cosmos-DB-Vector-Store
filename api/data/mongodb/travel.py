@@ -2,7 +2,16 @@
 from .init import client, vector_store
 from langchain.docstore.document import Document
 from typing import List, Optional, Union
-from model.itinerary import Itinerary
+
+from model.travel import Ship,Itinerary
+
+import locale
+
+
+def results_to_ship(result:Document) -> Ship:
+    return Ship(name = result.metadata["name"],
+                        description = result.metadata["description"],
+                        amenities= result.metadata["amenities"])
 
 def get_ship_by_name(name:str)->str:
     db = client["travel"]
@@ -18,16 +27,18 @@ def itnerary_search(name:str) -> list[Itinerary]:
     id = get_ship_by_name(name)
     print(id)
     cursor  = collection_name.find({'ship.shipid':id})
+    locale.setlocale( locale.LC_ALL, '' )
     for item in cursor:
         data.append(Itinerary(ShipID=item['ship']['shipid'],
-                              Name=item['name']
+                              Name=item['name'], Rooms=[f" room {p['name']} price {locale.currency(p['price'])} " for p in item['prices']],
+                              Schedule=[f" day {p['Day']} {p['type']} location {p['location']} " for p in item['itinerary']]
                     ))
     print(data)
     return data
 
 
 
-def similarity_search(query:str)-> list[Document]:
+def similarity_search(query:str)-> list[Ship]:
 
     docs = vector_store.similarity_search_with_score(query,3)
 
@@ -43,6 +54,6 @@ def similarity_search(query:str)-> list[Document]:
     # Print number of documents passing score threshold
     print(len(docs_filters))
   
-    return docs_filters
+    return [results_to_ship(document) for document in docs_filters]
   
 
