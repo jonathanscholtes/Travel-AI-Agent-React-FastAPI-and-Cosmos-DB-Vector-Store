@@ -20,14 +20,16 @@ export default function TravelAgent() {
   const [message, setMessage] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const handlePrompt = () => {
+  const handlePrompt = (prompt) => {
     setIsLoading(true)
-    setMessage( message=>[...message, {'message':chatPrompt,'direction':'right', 'bg':'#E7F4FA'}])
-   
-    fetch(process.env.REACT_APP_API_HOST + '/agent/' + chatPrompt)
+    setChatPrompt('')
+    setMessage( message=>[...message, {'message':prompt,'direction':'right', 'bg':'#E7F4FA'}])
+    
+    fetch(process.env.REACT_APP_API_HOST + '/agent/' + prompt)
       .then((response) => response.json())
       .then((res) => {
-        setMessage(message=>[...message,{'message':res.text,'direction':'left', 'bg':'#E7FAEC'}])
+        setMessage(message => [...message, { 'message': res.text, 'direction': 'left', 'bg': '#E7FAEC' }])
+        
         setIsLoading(false)
       })
   }
@@ -67,7 +69,7 @@ export default function TravelAgent() {
                 variant="contained"
                 endIcon={<SendIcon />}
                 sx={{ mb: 3, ml: 3, mt: 1 }}
-                onClick={handlePrompt}
+                onClick={(event) => handlePrompt(chatPrompt)}
               >
                 Submit
               </Button>

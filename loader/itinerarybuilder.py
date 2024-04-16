@@ -6,7 +6,8 @@ class ItineraryBuilder():
         self.ships = ships
         self.destinations = destinations
         self.ports = ['PORT CANAVERAL, FLORIDA','Fort Lauderdale, Florida','Miami, Florida']
-        self.days = [5,6,7]
+        self.itinerary_names = ['Perfect','Blissful','Escape to', 'Experience']
+        self.days = [{'days':5,'destinations':1,'price':[500,900]},{'days':7,'destinations':2,'price':[800,1100]},{'days':7,'destinations':2,'price':[1000,1500]}]
         self.rooms=[{'name':'Inside View','multiplier':.8},{'name':'Outside View','multiplier':.9},{'name':'Balcony','multiplier':1},{'name':'Suite','multiplier':1.2}]
 
     def build(self,count:int):
@@ -15,8 +16,9 @@ class ItineraryBuilder():
             d = random.choice(self.days)
             prt = random.choice(self.ports)
             sp = random.choice(self.ships)
-            dest = [x['name'] for x in random.choices(self.destinations,k=int(d-4))]
-            price = random.randrange(900,1500)
+            it_nm = random.choice(self.itinerary_names)
+            dest = [x['name'] for x in random.choices(self.destinations,k=d['destinations'])]
+            price = random.randrange(d['price'][0],d['price'][1])
             it = [{'Day':1,'type':'port', 'location':prt}]
             cnt = 2
             for e in dest:
@@ -32,7 +34,7 @@ class ItineraryBuilder():
 
             
 
-            itinerary.append({'name':f'{d} Day Caribbean Sea',
+            itinerary.append({'name':f"{d['days']} Day {it_nm} Caribbean Sea",
                               'ship':{'shipid':sp['shipid'],'description':sp['description']},
                               'prices':rms,
                               'itinerary':it})

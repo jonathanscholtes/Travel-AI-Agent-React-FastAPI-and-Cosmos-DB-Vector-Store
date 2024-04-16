@@ -6,8 +6,8 @@ from model.travel import Ship
 
 
 @tool
-def travel_agent(input:str) -> list[Document]:
-    """help find trips and vacations and cruise ships"""
+def vacation_lookup(input:str) -> list[Document]:
+    """find information on vacations and trips"""
     ships: list[Ship] = travel.similarity_search(input)
     #content = "\n\n".join(doc.page_content for doc in docs)
     content = ""
@@ -27,3 +27,13 @@ def itinerary_lookup(ship_name:str) -> str:
         results += f" Cruise itinerary {i.Name} room prices: {'/n-'.join(i.Rooms)} schedule: {'/n-'.join(i.Schedule)}"
 
     return results
+
+
+@tool
+def book_cruise(itinerary_name:str, passenger_name:str, room_name: str )-> str:
+    """book cruise using itinerary name and passenger name and room name"""
+    print(f"Iteinerary: {itinerary_name} passenger: {passenger_name} room: {room_name}")
+    if passenger_name == "John Doe":
+        return "May I please have your name?"
+    else:        
+        return "Cruise has been booked, ref number is 343242"

@@ -20,7 +20,7 @@ itinerary = builder.build(5)
 
 cosmosdb_loader.load_data(itinerary,'itinerary')
 
-cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
-cosmosdb_loader.load_vectors(destinations_json['destinations'],'destinations')
+#cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
+#cosmosdb_loader.load_vectors(destinations_json['destinations'],'destinations')
 
 

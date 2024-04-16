@@ -18,22 +18,27 @@ def get_ship_by_name(name:str)->str:
     collection_name = db["ships"]
     print(f"-{name}-")
     ship = collection_name.find_one({'name': name.strip()})
-    return ship['shipid']
+    if 'shipid' in ship:
+        return ship['shipid']
+    else:
+        print('ship not found')
+        return ''
 
 def itnerary_search(name:str) -> list[Itinerary]:
     data = []
     db = client["travel"]
     collection_name = db["itinerary"]
     id = get_ship_by_name(name)
-    print(id)
-    cursor  = collection_name.find({'ship.shipid':id})
-    locale.setlocale( locale.LC_ALL, '' )
-    for item in cursor:
-        data.append(Itinerary(ShipID=item['ship']['shipid'],
-                              Name=item['name'], Rooms=[f" room {p['name']} price {locale.currency(p['price'])} " for p in item['prices']],
-                              Schedule=[f" day {p['Day']} {p['type']} location {p['location']} " for p in item['itinerary']]
-                    ))
-    print(data)
+    if id != '':
+        print(id)
+        cursor  = collection_name.find({'ship.shipid':id})
+        locale.setlocale( locale.LC_ALL, '' )
+        for item in cursor:
+            data.append(Itinerary(ShipID=item['ship']['shipid'],
+                                Name=item['name'], Rooms=[f" room {p['name']} price {locale.currency(p['price'])} " for p in item['prices']],
+                                Schedule=[f" day {p['Day']} {p['type']} location {p['location']} " for p in item['itinerary']]
+                        ))
+        print(data)
     return data
 
 
