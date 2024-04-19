@@ -26,6 +26,8 @@ class CosmosDBLoader():
 
         collection.insert_many(data)
 
+        return collection
+
 
     def load_vectors(self,data:list,collection_name:str):
         """load embeddings  into cosmosDB vector store"""
@@ -63,4 +65,4 @@ class CosmosDBLoader():
 
                 vector_store.create_index(num_lists, dimensions, similarity_algorithm)
 
-
+        return collection

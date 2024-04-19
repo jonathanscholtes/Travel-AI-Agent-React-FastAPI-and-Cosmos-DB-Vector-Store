@@ -1,8 +1,5 @@
-import React, { useState, Component } from 'react'
-import { Button, Stack, Link, Paper } from '@mui/material'
-import { orange } from '@mui/material/colors'
-import { styled } from '@mui/material/styles'
-import ButtonBase from '@mui/material/ButtonBase'
+import React, {  Component } from 'react'
+import { Stack, Link, Paper } from '@mui/material'
 import TravelAgent from './TripPlanning/TravelAgent'
 
 import './Main.css'
@@ -11,23 +8,6 @@ class Main extends Component {
   constructor() {
     super()
 
-    this.state = {
-      session_id: ''
-    }
-
-    const handleSession = () => {
-      
-      fetch(process.env.REACT_APP_API_HOST + '/session/')
-        .then((response) => response.json())
-        .then((res) => {
-          this.setState(() => { return { 'session_id': res.session_id } });
-          
-        })
-    }
-
-    if (this.state.session_id ==='') {
-      handleSession();
-    }
 
   }
 
@@ -67,7 +47,7 @@ class Main extends Component {
                   <img
                     src={require('./images/destinations.png')} width={'400px'} />
                 </Link>
-                <TravelAgent session_id={this.state.session_id}></TravelAgent>
+                <TravelAgent ></TravelAgent>
                 <Link href="#">
                   <img
                     src={require('./images/ships.png')} width={'400px'} />

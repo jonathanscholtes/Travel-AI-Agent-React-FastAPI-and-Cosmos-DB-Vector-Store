@@ -18,6 +18,8 @@ def get_ship_by_name(name:str)->str:
     collection_name = db["ships"]
     print(f"-{name}-")
     ship = collection_name.find_one({'name': name.strip()})
+    #ship = collection_name.find({"$text": {"$search": name.strip()}}).limit(1)
+    if ship == None: return '' 
     if 'shipid' in ship:
         return ship['shipid']
     else:

@@ -1,38 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect  } from 'react'
 import { Button, Box, Link, Stack, TextField } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import './TravelAgent.css'
 import {
   Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
+  DialogContent
 } from '@mui/material'
 
 import ChatLayout from './ChatLayout'
 
-export default function TravelAgent(session) {
+export default function TravelAgent() {
   const [open, setOpen] = React.useState(false)
   const [chatPrompt, setChatPrompt] = useState(
     'I want to take a relaxing vacation.',
   )
   const [message, setMessage] = useState([{ 'message': "Hello, how can I assist you today?", 'direction': 'left', 'bg': '#E7FAEC' }])
   const [isLoading, setIsLoading] = useState(false)
+  const [session,setSession] = useState('')
+
 
   const handlePrompt = (prompt) => {
     setIsLoading(true)
     setChatPrompt('')
     setMessage( message=>[...message, {'message':prompt,'direction':'right', 'bg':'#E7F4FA'}])
-    console.log(session.session_id)
-    fetch(process.env.REACT_APP_API_HOST + '/agent/' + prompt + "/" + session.session_id)
+    console.log(session)
+    fetch(process.env.REACT_APP_API_HOST + '/agent/agent_chat' , {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'input': prompt, 'session_id': session})
+        } )
       .then((response) => response.json())
       .then((res) => {
         setMessage(message => [...message, { 'message': res.text, 'direction': 'left', 'bg': '#E7FAEC' }])
-        
         setIsLoading(false)
       })
   }
+
+  const handleSession = () => {
+      
+      fetch(process.env.REACT_APP_API_HOST + '/session/')
+        .then((response) => response.json())
+        .then((res) => {
+          setSession(res.session_id );
+          
+        })
+    }
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -41,6 +55,13 @@ export default function TravelAgent(session) {
   const handleClose = (value) => {
     setOpen(false)
   }
+
+   useEffect(() => {
+    if (session === '') handleSession();
+   }, []);
+  
+  
+  
 
   return (
     <Box>
