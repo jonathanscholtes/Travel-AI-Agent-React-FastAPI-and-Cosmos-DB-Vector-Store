@@ -19,21 +19,23 @@ def vacation_lookup(input:str) -> list[Document]:
 
 @tool
 def itinerary_lookup(ship_name:str) -> str:
-    """find ship itinerary by ship name"""
+    """find ship itinerary, cruise packages and destinations by ship name"""
     it = travel.itnerary_search(ship_name)
     results = ""
 
     for i in it:
-        results += f" Cruise itinerary {i.Name} room prices: {'/n-'.join(i.Rooms)} schedule: {'/n-'.join(i.Schedule)}"
+        results += f" Cruise Package {i.Name} room prices: {'/n-'.join(i.Rooms)} schedule: {'/n-'.join(i.Schedule)}"
 
     return results
 
 
 @tool
-def book_cruise(itinerary_name:str, passenger_name:str, room_name: str )-> str:
-    """book cruise using itinerary name and passenger name and room name"""
-    print(f"Iteinerary: {itinerary_name} passenger: {passenger_name} room: {room_name}")
+def book_cruise(package_name:str, passenger_name:str, room: str )-> str:
+    """book cruise using package name and passenger name and room """
+    print(f"Package: {package_name} passenger: {passenger_name} room: {room}")
     if passenger_name == "John Doe":
-        return "May I please have your name?"
-    else:        
+        return "In order to book a cruise I will need to know your name."
+    else:
+        if room == '':
+            return "which room would you like to book"            
         return "Cruise has been booked, ref number is 343242"

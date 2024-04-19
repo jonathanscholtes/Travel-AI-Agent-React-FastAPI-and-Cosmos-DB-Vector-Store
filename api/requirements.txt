@@ -7,5 +7,6 @@ tiktoken
 langchain-openai
 langchain
 langchain-community
+langchain-mongodb
 openai
 azure-storage-blob

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from web import agent
+from web import agent, session
 
 app = FastAPI()
 
@@ -18,6 +18,7 @@ app.add_middleware(
 
 
 app.include_router(agent.router)
+app.include_router(session.router)
 
 
 

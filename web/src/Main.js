@@ -10,6 +10,25 @@ import './Main.css'
 class Main extends Component {
   constructor() {
     super()
+
+    this.state = {
+      session_id: ''
+    }
+
+    const handleSession = () => {
+      
+      fetch(process.env.REACT_APP_API_HOST + '/session/')
+        .then((response) => response.json())
+        .then((res) => {
+          this.setState(() => { return { 'session_id': res.session_id } });
+          
+        })
+    }
+
+    if (this.state.session_id ==='') {
+      handleSession();
+    }
+
   }
 
   render() {
@@ -48,7 +67,7 @@ class Main extends Component {
                   <img
                     src={require('./images/destinations.png')} width={'400px'} />
                 </Link>
-                <TravelAgent></TravelAgent>
+                <TravelAgent session_id={this.state.session_id}></TravelAgent>
                 <Link href="#">
                   <img
                     src={require('./images/ships.png')} width={'400px'} />

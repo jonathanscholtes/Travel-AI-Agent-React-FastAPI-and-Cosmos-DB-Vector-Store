@@ -12,20 +12,20 @@ import {
 
 import ChatLayout from './ChatLayout'
 
-export default function TravelAgent() {
+export default function TravelAgent(session) {
   const [open, setOpen] = React.useState(false)
   const [chatPrompt, setChatPrompt] = useState(
     'I want to take a relaxing vacation.',
   )
-  const [message, setMessage] = useState([])
+  const [message, setMessage] = useState([{ 'message': "Hello, how can I assist you today?", 'direction': 'left', 'bg': '#E7FAEC' }])
   const [isLoading, setIsLoading] = useState(false)
 
   const handlePrompt = (prompt) => {
     setIsLoading(true)
     setChatPrompt('')
     setMessage( message=>[...message, {'message':prompt,'direction':'right', 'bg':'#E7F4FA'}])
-    
-    fetch(process.env.REACT_APP_API_HOST + '/agent/' + prompt)
+    console.log(session.session_id)
+    fetch(process.env.REACT_APP_API_HOST + '/agent/' + prompt + "/" + session.session_id)
       .then((response) => response.json())
       .then((res) => {
         setMessage(message => [...message, { 'message': res.text, 'direction': 'left', 'bg': '#E7FAEC' }])
