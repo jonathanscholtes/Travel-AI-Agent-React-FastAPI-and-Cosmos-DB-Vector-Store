@@ -32,7 +32,7 @@ This repository features a demo of an AI Travel Assistant that utilizes Azure Co
 This project is licensed under the [MIT License](MIT.md), granting permission for commercial and non-commercial use with proper attribution.
 
 ## Support
-For any questions or issues, please [open an issue](https://github.com/jonathanscholtes/cruise_line_ai_agent/issues) on GitHub or reach out to the project maintainers.
+For any questions or issues, please [open an issue](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store/issues) on GitHub or reach out to the project maintainers.
 
 ## Disclaimer
 This demo application is provided for educational and demonstration purposes only. Use at your own risk.
