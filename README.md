@@ -11,6 +11,7 @@ This repository features a demo of an AI Travel Assistant that utilizes Azure Co
 - Integrate Azure Cosmos DB as the database solution for storing conversation history, user preferences, and other relevant data.
 - Design a user-friendly front-end interface using React JS, providing an intuitive platform for users to interact with the AI agent.
 
+![travel agent chat](images/travel_agent_chat.PNG)
 
 ## Requirements
 - Azure subscription for deploying Azure Cosmos DB for MongoDB vCore.

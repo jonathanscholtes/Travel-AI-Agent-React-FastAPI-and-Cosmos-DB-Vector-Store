@@ -27,7 +27,7 @@ npm ci
 ```
 npm start
 ```
-
+![travel site](../images/react_js_page.PNG)
 
 ## License
 This project is licensed under the [MIT License](../MIT.md), granting permission for commercial and non-commercial use with proper attribution.

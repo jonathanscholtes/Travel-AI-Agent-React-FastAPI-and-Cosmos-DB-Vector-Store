@@ -5,9 +5,9 @@ This Python FastAPI project integrates LangChain for implementing an AI Agent, l
 
 ## Features
 - Utilizes FastAPI for building a high-performance web API.
-- Integrates LangChain for implementing the RAG pattern, enabling advanced natural language processing tasks.
+- Integrates LangChain for implementing AI Agent 
 - Utilizes CosmosDB vector store for efficient text retrieval based on semantic similarity.
-- Retrieves images from an Azure Storage Account associated with the retrieved text.
+
 
 ## Requirements
 - Python environment with FastAPI, LangChain, and Azure SDK installed.
@@ -35,8 +35,7 @@ python main.py
 ```
 7. View the Swagger Docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-
-
+![fastapi docs](../images/fastapi_docs.PNG)
 
 ## License
 This project is licensed under the [MIT License](../MIT.md), granting permission for commercial and non-commercial use with proper attribution.
