@@ -8,7 +8,6 @@ class Main extends Component {
   constructor() {
     super()
 
-
   }
 
   render() {

@@ -1,6 +1,5 @@
 from langchain_core.tools import tool
 from langchain.docstore.document import Document
-
 from data.mongodb import travel
 from model.travel import Ship
 
@@ -9,7 +8,6 @@ from model.travel import Ship
 def vacation_lookup(input:str) -> list[Document]:
     """find information on vacations and trips"""
     ships: list[Ship] = travel.similarity_search(input)
-    #content = "\n\n".join(doc.page_content for doc in docs)
     content = ""
 
     for ship in ships:
@@ -33,6 +31,8 @@ def itinerary_lookup(ship_name:str) -> str:
 def book_cruise(package_name:str, passenger_name:str, room: str )-> str:
     """book cruise using package name and passenger name and room """
     print(f"Package: {package_name} passenger: {passenger_name} room: {room}")
+
+    # LLM defaults empty name to John Doe 
     if passenger_name == "John Doe":
         return "In order to book a cruise I will need to know your name."
     else:

@@ -5,7 +5,6 @@ from langchain_openai import ChatOpenAI
 from langchain_mongodb.chat_message_histories import MongoDBChatMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables.history import RunnableWithMessageHistory
-
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from service import TravelAgentTools as agent_tools
 

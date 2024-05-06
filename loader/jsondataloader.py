@@ -7,19 +7,13 @@ from langchain.document_loaders.base import BaseLoader
 
 
 class JSONDataLoader(BaseLoader):
-    def __init__(
-        self,
-        content_key: Optional[str] = None,
-        ):
-        self._content_key = content_key
-
 
     def load_ship(self,data:list) -> List[Document]:
         """Load and return documents from the JSON file."""
 
         docs:List[Document]=[]
    
-        #iterate through resource pages and create a Document for each page
+        #iterate through ship data and create a Document for each ship
         for element in data:
             name = element['name']
             text = element['description'] + ' '.join(element['amenities'])
@@ -38,13 +32,13 @@ class JSONDataLoader(BaseLoader):
         return docs
         
     def load_destination(self,data:list) -> List[Document]:
-        """Load and return documents from the JSON file."""
+        """Load and return documents from the destination JSON file."""
 
         docs:List[Document]=[]
    
-        #iterate through resource pages and create a Document for each page
+        #iterate through destination data and create a Document for each destination
         for element in data:
-            destinationid = element['destinationid']
+            
             name = element['name']
             text = element['description'] + ' '.join(element['activities'])
             location = element['location']
@@ -52,6 +46,7 @@ class JSONDataLoader(BaseLoader):
             activities = element['activities']
 
             metadata = dict(
+                destinationid = element['destinationid'],
                 name = name,
                 location = location,
                 description = description,

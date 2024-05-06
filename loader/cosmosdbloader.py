@@ -1,8 +1,6 @@
 from os import environ
-from pathlib import Path
-from typing import List, Optional, Union
 from dotenv import load_dotenv
-from pymongo import MongoClient
+from pymongo import MongoClient, database
 from jsondataloader import JSONDataLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores.azure_cosmos_db import AzureCosmosDBVectorSearch, CosmosDBSimilarityType
@@ -13,30 +11,46 @@ load_dotenv(override=True)
 
 class CosmosDBLoader():
     def __init__(
-    self):
-         #variable from '.env' file
+    self, DB_Name):
         self.MONGO_CONNECTION_STRING = environ.get("MONGO_CONNECTION_STRING")
-        self.DB_NAME = 'travel'
+        self.DB_NAME = DB_Name
+
+
+    def __collection_exists(self,db:database, collection_name:str)->bool:
+        collections = db.list_collection_names()
+        if collection_name in collections: return True
+        return False
+    
+    def __drop_collection(self,db:database, collection_name:str):
+        if self.__collection_exists(db,collection_name):
+            db.drop_collection(collection_name)
+    
 
     
-    def load_data(self,data:list,collection_name:str,):
+    def load_data(self,data:list,collection_name:str):
+        """load documents into Cosmos DB Collection"""
+
+        print(f"--load {collection_name}--")
         client = MongoClient(self.MONGO_CONNECTION_STRING)
         db = client[self.DB_NAME]
-        collection = db[collection_name]
 
+        self.__drop_collection(db,collection_name)
+        collection = db[collection_name]
+        
         collection.insert_many(data)
 
         return collection
 
 
     def load_vectors(self,data:list,collection_name:str):
-        """load embeddings  into cosmosDB vector store"""
-        #hardcoded variables
+        """load embeddings  into Cosmos DB vector store"""
+      
 
         INDEX_NAME = "vectorSearchIndex"
-
+        print(f"--load vectors {collection_name}--")
         client = MongoClient(self.MONGO_CONNECTION_STRING)
         db = client[self.DB_NAME]
+        self.__drop_collection(db,collection_name)
         collection = db[collection_name]
 
         loader = JSONDataLoader( )

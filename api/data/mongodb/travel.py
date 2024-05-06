@@ -1,4 +1,3 @@
-
 from .init import client, vector_store
 from langchain.docstore.document import Document
 from typing import List, Optional, Union
@@ -13,6 +12,7 @@ def results_to_ship(result:Document) -> Ship:
                         description = result.metadata["description"],
                         amenities= result.metadata["amenities"])
 
+
 def get_ship_by_name(name:str)->str:
     db = client["travel"]
     collection_name = db["ships"]
@@ -25,6 +25,7 @@ def get_ship_by_name(name:str)->str:
     else:
         print('ship not found')
         return ''
+
 
 def itnerary_search(name:str) -> list[Itinerary]:
     data = []
@@ -47,12 +48,12 @@ def itnerary_search(name:str) -> list[Itinerary]:
 
 def similarity_search(query:str)-> list[Ship]:
 
-    docs = vector_store.similarity_search_with_score(query,3)
+    docs = vector_store.similarity_search_with_score(query,2)
 
     # Cosine Similarity:
     #It measures the cosine of the angle between two vectors in an n-dimensional space.
     #The values of similarity metrics typically range between 0 and 1, with higher values indicating greater similarity between the vectors.
-    docs_filters = [doc for doc, score  in docs if score >=.80]
+    docs_filters = [doc for doc, score  in docs if score >=.78]
 
     # List the scores for documents
     for doc, score  in docs:

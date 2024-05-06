@@ -1,27 +1,35 @@
 from cosmosdbloader import CosmosDBLoader
 from itinerarybuilder import ItineraryBuilder
-from blobloader import BlobLoader
 import json
-import base64
 
 
-cosmosdb_loader = CosmosDBLoader()
+cosmosdb_loader = CosmosDBLoader(DB_Name='travel')
 
-#ship data
+#read in ship data
 with open('documents/ships.json') as file:
         ship_json = json.load(file)
 
-#destination data
+#read in destination data
 with open('documents/destinations.json') as file:
         destinations_json = json.load(file)
 
 builder = ItineraryBuilder(ship_json['ships'],destinations_json['destinations'])
+
+# Create five itinerary pakages
 itinerary = builder.build(5)
 
+# Save itinerary packages to Cosmos DB
 cosmosdb_loader.load_data(itinerary,'itinerary')
 
-#collection = cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
-#collection.create_index([('name', 'text')])
+# Save destinations to Cosmos DB
+cosmosdb_loader.load_data(destinations_json['destinations'],'destinations')
+
+# Save ships to Cosmos DB, create vector store
+collection = cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
+
+# Add text search index to ship name
+collection.create_index([('name', 'text')])
+
 #cosmosdb_loader.load_vectors(destinations_json['destinations'],'destinations')
 
 
