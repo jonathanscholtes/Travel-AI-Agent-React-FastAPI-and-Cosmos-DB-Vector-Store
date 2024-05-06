@@ -1,7 +1,7 @@
 # AI Travel Agent Powered by Azure Cosmos DB and LangChain
 
 ## Overview
-This repository features a demo of an AI Travel Assistant that utilizes Azure Cosmos DB for vector search and chat history management, ensuring a responsive and feature-rich chat experience. Prompt requests are efficiently handled by Python FastAPI, while a user-friendly front-end is built with React JS.
+This repository explores the implementation of a LangChain Agent using Azure Cosmos DB for MongoDB vCore to handle traveler inquiries and bookings. The project provides detailed instructions for setting up the environment and loading travel data, aiming to empower developers to integrate similar agents into their solutions. To gain a comprehensive understanding of the project, refer to the article: [Empower your AI Agent with Azure Cosmos DB](https://stochasticcoder.com/2024/05/05/empower-your-ai-agent-with-azure-cosmos-db/).
 
 ## Objectives
 
