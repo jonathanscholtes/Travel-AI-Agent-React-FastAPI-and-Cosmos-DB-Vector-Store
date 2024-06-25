@@ -29,4 +29,4 @@ def get() -> str:
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", reload=True)
+    uvicorn.run("app:app", reload=True)
