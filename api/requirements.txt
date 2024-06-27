@@ -2,10 +2,10 @@ fastapi
 uvicorn
 weaviate-client==3.24.1
 python-dotenv==1.0.0
-pymongo
+pymongo==4.6.3
 tiktoken
-langchain-openai
-langchain
-langchain-community
-langchain-mongodb
-openai
+langchain-openai==0.1.1
+langchain==0.1.14
+langchain-community==0.0.31
+langchain-mongodb==0.1.3
+openai==1.16.2
