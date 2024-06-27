@@ -6,7 +6,7 @@ from langchain_community.vectorstores.azure_cosmos_db import AzureCosmosDBVector
 
 
 
-load_dotenv(override=False)
+load_dotenv(override=True)
 
 
 client: MongoClient | None = None

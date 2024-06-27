@@ -3,7 +3,7 @@ from model.prompt import PromptResponse
 import time
 from dotenv import load_dotenv
 
-load_dotenv(override=False)
+load_dotenv(override=True)
 
 
 def agent_chat(input:str, session_id:str)->str:

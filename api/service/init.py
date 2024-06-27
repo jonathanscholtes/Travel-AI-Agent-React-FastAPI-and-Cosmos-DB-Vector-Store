@@ -8,7 +8,7 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from service import TravelAgentTools as agent_tools
 
-load_dotenv(override=False)
+load_dotenv(override=True)
 
 
 chat : ChatOpenAI | None=None
